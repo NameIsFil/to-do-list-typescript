@@ -13,7 +13,7 @@ export type ColumnProps = {
     title: string,
     tasksArray: TaskArray;
     tasks: TaskArray;
-    fetchTasks(): object;
+    fetchTasks(): Promise<Task[]>;
 }
 
 export const Column: FunctionComponent<ColumnProps> = (props) => {
@@ -30,7 +30,6 @@ export const Column: FunctionComponent<ColumnProps> = (props) => {
                 {props.tasks.map((task:Task) => {
                     return (
                         <TaskCard task={task} fetchTasks={fetchTasks} />
-                        // <p>{task.title}</p>
                     )
                 })}
             </TasksColumn>

@@ -1,9 +1,11 @@
-import {Link} from "react-router-dom";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import AddIcon from '@mui/icons-material/Add';
 import { grey } from '@mui/material/colors';
+import { Link } from "react-router-dom";
+import { FunctionComponent } from "react";
+import { Task } from "../index.tsx";
 import {
     TaskCardContainer,
     TopBar,
@@ -12,19 +14,16 @@ import {
     ButtonPreview,
     TaskText
 } from "./TaskCard.styled.tsx";
-import {FunctionComponent} from "react";
-import {Task} from "../index.tsx";
 
 type TaskCardProps = {
     task: Task,
-    fetchTasks(): any;
+    fetchTasks(): Promise<Task[]>;
 }
 
 export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
     const task = props.task
 
-    // @ts-ignore
-    async function removeTask(task) {
+    async function removeTask(task:Task) {
         const postResponse = await fetch(`http://localhost:3000/tasks/${task.id}`, {
             method: 'DELETE'
         });
@@ -32,8 +31,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
         return postResponse;
     }
 
-    // @ts-ignore
-    async function changeTaskStatus(task, taskStatus) {
+    async function changeTaskStatus(task:Task, taskStatus:string) {
         const postResponse = await fetch(`http://localhost:3000/tasks/${task.id}`, {
             method: 'PATCH',
             headers: { "Content-Type": "application/json", },
@@ -45,8 +43,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
         return postResponse;
     }
 
-    // @ts-ignore
-    function moveRight(task) {
+    function moveRight(task:Task) {
         if(task.status === "ToDo") {
             task.status = "Doing";
             changeTaskStatus(task, task.status)
@@ -62,8 +59,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
         }
     }
 
-    // @ts-ignore
-    function moveLeft(task) {
+    function moveLeft(task:Task) {
         if(task.status === "ToDo") {
             return;
         }

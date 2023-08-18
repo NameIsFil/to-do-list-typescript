@@ -1,3 +1,7 @@
+
+import { useMemo, useState, useEffect } from 'react';
+import { Column } from "./Column";
+// import { AddTaskInput } from "./AddTaskInput";
 import {
   DesktopBackground,
   TopBar,
@@ -10,9 +14,6 @@ import {
   TypographyLine,
   ColumnsContainer,
 } from './ToDoList.styled.tsx';
-import { useMemo, useState, useEffect } from 'react';
-import {Column} from "./Column";
-// import {AddTaskInput} from "./AddTaskInput";
 
 export type Task = {
   id: number,
@@ -52,7 +53,7 @@ export function ToDoList() {
   async function fetchTasks() {
     const postResponse = await fetch(`http://localhost:3000/tasks`);
     const tasksData = await postResponse.json();
-    setTasksArray(tasksData)
+    return setTasksArray(tasksData)
   }
 
   return (
