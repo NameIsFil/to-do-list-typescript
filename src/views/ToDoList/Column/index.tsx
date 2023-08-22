@@ -1,4 +1,6 @@
-import {TaskCard} from "../TaskCard";
+import { FunctionComponent } from "react";
+import { Task, TaskArray } from "../index.tsx";
+import { TaskCard } from "../TaskCard";
 import {
     ColumnTile,
     ColumnTitleContainer,
@@ -6,19 +8,14 @@ import {
     TasksColumn,
     TypographyLineColumn,
 } from "./Column.styled.tsx";
-import {FunctionComponent} from "react";
-import {Task, TaskArray} from "../index.tsx";
 
 export type ColumnProps = {
     title: string,
-    tasksArray: TaskArray;
-    tasks: TaskArray;
-    fetchTasks(): Promise<Task[]>;
+    tasks: TaskArray,
+    fetchTasks(): Promise<void>,
 }
 
-export const Column: FunctionComponent<ColumnProps> = (props) => {
-    const title = props.title;
-    const fetchTasks = props.fetchTasks;
+export const Column: FunctionComponent<ColumnProps> = ({title, tasks, fetchTasks}) => {
 
     return (
         <ColumnTile>
@@ -27,11 +24,9 @@ export const Column: FunctionComponent<ColumnProps> = (props) => {
             </ColumnTitleContainer>
             <TypographyLineColumn></TypographyLineColumn>
             <TasksColumn>
-                {props.tasks.map((task:Task) => {
-                    return (
-                        <TaskCard task={task} fetchTasks={fetchTasks} />
-                    )
-                })}
+                {
+                    tasks.map((task:Task) => <TaskCard task={task} fetchTasks={fetchTasks} />
+                )}
             </TasksColumn>
         </ColumnTile>
     )

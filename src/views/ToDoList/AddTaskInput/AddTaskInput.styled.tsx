@@ -28,7 +28,7 @@ export const InputButton = styled('input')`
   border:none;
   cursor: pointer;
 `;
-export const InputRow = styled('input')`
+export const InputRow = styled('div')`
   position: relative;
   display: inline-block;
   font-size: 14px;

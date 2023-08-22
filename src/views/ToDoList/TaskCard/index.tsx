@@ -17,7 +17,7 @@ import {
 
 type TaskCardProps = {
     task: Task,
-    fetchTasks(): Promise<Task[]>;
+    fetchTasks(): Promise<void>;
 }
 
 export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
@@ -27,7 +27,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
         const postResponse = await fetch(`http://localhost:3000/tasks/${task.id}`, {
             method: 'DELETE'
         });
-        props.fetchTasks()
+        await props.fetchTasks()
         return postResponse;
     }
 
@@ -39,7 +39,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
                 status: taskStatus,
             }),
         });
-        props.fetchTasks()
+        await props.fetchTasks()
         return postResponse;
     }
 
