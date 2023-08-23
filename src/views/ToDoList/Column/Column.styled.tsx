@@ -25,7 +25,7 @@ export const ColumnTitle = styled('h1')`
 `;
 
 export const TasksColumn = styled('div')`
-  height: 480px;
+  height: 465px;
   overflow: hidden;
   overflow-y: scroll;
 `;

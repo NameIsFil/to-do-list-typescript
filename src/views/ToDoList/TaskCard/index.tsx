@@ -88,7 +88,7 @@ export const TaskCard: FunctionComponent<TaskCardProps> = (props) => {
                 <ButtonPreview onClick={() => moveLeft(task)}>
                     <ArrowLeftIcon sx={{ color: grey[100] }} />
                 </ButtonPreview>
-                <ButtonPreview onClick={() => removeTask(task)}>
+                <ButtonPreview onClick={() => void removeTask(task)}>
                     <HighlightOffIcon sx={{ color: grey[100] }} />
                 </ButtonPreview>
                 <ButtonPreview onClick={() => moveRight(task)}>
