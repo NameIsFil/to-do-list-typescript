@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../../shared/components/Layout/Header";
 import { Link } from "react-router-dom";
+import { Background } from "./TaskView.styled.tsx";
+import { apiCall } from "../../shared/utils/apiCall.tsx";
+import { Task } from "../ToDoList";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import BackspaceIcon from '@mui/icons-material/Backspace';
 import {
     // BackButton,
     ButtonBar,
@@ -13,13 +20,7 @@ import {
     TaskTitle,
     Paragraph
 } from "./TaskView.styled.tsx";
-import { Background } from "./TaskView.styled.tsx";
-import { apiCall } from "../../shared/utils/apiCall.tsx";
-import { Task } from "../ToDoList";
-import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import BackspaceIcon from '@mui/icons-material/Backspace';
+
 
 export function TaskDetails() {
     const [taskDetails, setTaskDetails] = useState({}) // add circular progress from mui (if detail = null, return circular progress)

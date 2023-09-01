@@ -38,11 +38,3 @@ export const ColumnsContainer = styled('div')`
   justify-content: center;
 `;
 
-// @media screen and (max-width: 1130px){
-// .toDoList {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//     }
-// }
-

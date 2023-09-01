@@ -6,10 +6,10 @@ export const InputBar = styled('div')`
   margin-bottom: 48px;
 `;
 export const InputBox = styled('input')`
-  margin: 0px;
+  margin: 0;
   width: 352px;
   padding: 8px 25px;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0 0 10px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   outline: none;
@@ -21,11 +21,11 @@ export const InputBox = styled('input')`
   }
 `;
 
-export const InputButton = styled('input')`
-  margin: 0px;
+export const InputButton = styled('button')`
+  margin: 0;
   width: 63px;
   padding: 10px;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 0 10px 10px 0;
   background-color: #d64161;
   color: #f2f2f2;
   font-family: 'Montserrat', sans-serif;
@@ -36,7 +36,8 @@ export const InputButton = styled('input')`
 `;
 export const InputRow = styled('div')`
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   font-size: 14px;
   box-sizing: border-box;
   transition: .5s;

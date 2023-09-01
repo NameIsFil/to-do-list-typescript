@@ -14,6 +14,8 @@ type AddTaskInputProps = {
     fetchTasks: () => Promise<void>,
 }
 
+type InputEvent = ChangeEvent<HTMLInputElement>;
+
 export const AddTaskInput: FunctionComponent<AddTaskInputProps> = (props) => {
     const [inputValue, setInputValue] = useState<string>()
 
@@ -31,8 +33,6 @@ export const AddTaskInput: FunctionComponent<AddTaskInputProps> = (props) => {
         await props.fetchTasks()
     }
 
-    type InputEvent = ChangeEvent<HTMLInputElement>;
-
     function handleInput(event:InputEvent) {
         setInputValue(event.target.value)
     }
@@ -41,7 +41,7 @@ export const AddTaskInput: FunctionComponent<AddTaskInputProps> = (props) => {
         <InputBar>
             <InputRow>
                 <InputBox name="addTask" onInput={handleInput} type={"text"}/>
-                <InputButton onClick={() => {addTask()}} value="Add" type={"submit"} />
+                <InputButton onClick={() => {addTask()}}>Add</InputButton>
             </InputRow>
         </InputBar>
     )
