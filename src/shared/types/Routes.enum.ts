@@ -1,5 +1,5 @@
 export enum RoutesEnum {
-  LogIn = '/log-in',
+  FrontPage = '/',
   Fallback = '/',
-  Dashboard = '/dashboard',
+  Details = '/details/:taskId',
 }

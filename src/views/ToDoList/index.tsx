@@ -3,10 +3,6 @@ import { Column } from "./Column";
 import { AddTaskInput } from "./AddTaskInput";
 import {
   DesktopBackground,
-  TopBar,
-  LogoBar,
-  Logo,
-  LogoText,
   BottomBar,
   InputField,
   Title,
@@ -14,6 +10,7 @@ import {
   ColumnsContainer,
 } from './ToDoList.styled.tsx';
 import {apiCall} from "../../shared/utils/apiCall.tsx";
+import {Header} from "../../shared/components/Layout/Header";
 
 export type Task = {
   id: number,
@@ -56,22 +53,9 @@ export function ToDoList() {
     setTasksArray(postResponse)
   }
 
-  // async function fetchTasks() {
-  //   const postResponse = await fetch(`http://localhost:3000/tasks`);
-  //   const tasksData = await postResponse.json();
-  //   setTasksArray(tasksData)
-  // }
-
   return (
       <DesktopBackground>
-        <TopBar>
-          <LogoBar>
-            <Logo />
-            <div>
-              <LogoText>TASKMASTER</LogoText>
-            </div>
-          </LogoBar>
-        </TopBar>
+        <Header />
         <BottomBar>
           <InputField>
             <Title>To Do List</Title>

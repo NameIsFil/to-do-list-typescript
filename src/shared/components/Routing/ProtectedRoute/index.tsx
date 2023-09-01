@@ -37,6 +37,6 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   } else if (user) {
     return <>{children}</>;
   } else {
-    return <Navigate to={RoutesEnum.LogIn} />;
+    return <Navigate to={RoutesEnum.FrontPage} />;
   }
 };

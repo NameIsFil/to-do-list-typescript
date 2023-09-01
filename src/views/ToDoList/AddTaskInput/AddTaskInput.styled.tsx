@@ -14,7 +14,13 @@ export const InputBox = styled('input')`
   font-weight: 500;
   outline: none;
   border:none;
+  &:hover {
+    width: 380px;
+    outline: purple;
+    border:purple;
+  }
 `;
+
 export const InputButton = styled('input')`
   margin: 0px;
   width: 63px;
